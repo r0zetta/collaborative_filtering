@@ -57,12 +57,10 @@ Each step is clearly labeled in the notebook.
 - Visualizsation: matplotlib (https://matplotlib.org/) and seaborn (https://seaborn.pydata.org/)
 
 
-## Recommendation algorithm implementations
-
+# Recommendation algorithm implementations
 The fastai collaborative filtering model consists of a set of learned weights for both sources and targets. A cosine similarity matrix can be built from each of these sets of vectors, thus allowing one to query the similarity between any given pair of sources or targets. Using these cosine similarity matrices, one can implement the following simple recommendation algorithms that can be used to reccommend accounts to a user based on who the user has retweeted.
 
-1. Target-based similarity
-
+## Target-based similarity
 Using the target-based cosine similarity matrix, one can generate recommendations for source based on who they've retweeted. For a given source, obtain a list of all target accounts retweeted by the source, and the number of times the source retweeted the target account. For each of the target accounts in the list, obtain a list of _t_max_matches_ most similar target accounts from the target-based cosine similarity matrix. For each of these, multiply the similarity value (between the source account and the target account) with the number of times the source retweeted the target account, and add that value to a running total score for each target retweeted account.
 
 In pseudocode:
@@ -72,8 +70,7 @@ for target, num_retweets in get_source_retweets(source):
         recommended[similar] += num_retweets * similarity
 ```
 
-2. Source-based similarity
-
+## Source-based similarity
 Using the source-based cosine similarity matrix, one can generate a ranked list of recommendations for a given source account as follows. First obtain a list of _s_max_matches_ sources most similar to the target account. For each of these source accounts, obtain a list of target accounts they retweeted, and the number of times they retweeted. For each target-retweeted_count, multiply retweeted_count by the similarity value between the initially queried source and this source account. Add that value to a running total score for each target retweeted account.
 
 In pseudocode:

@@ -89,8 +89,20 @@ The algorithms demonstrated in this notebook were implemented by me and are inte
 Note that it would be extremely difficult to determine how close the algorithms implemented in this experiment match the underlying mechanisms in real social networks such as Twitter. The data we're working with is fixed - it's a snapshot collected over a short period of time. The data also only includes interactions between a limited number of accounts (those that interacted with the small number of users queried during the data collection process). One may view this experiment as a series of "what-if" experiments, which demonstrate how recommendations in the system would have changed if retweet activity had been different to the originally recorded behaviour.
 
 
-## About the dataset
+# About the datasets
 
-The Twitter dataset was collected using Twitter's streaming API (https://developer.twitter.com/en/docs/twitter-api/v1/tweets/filter-realtime/api-reference/post-statuses-filter). The filter API was instructed to capture Tweet objects from a small number (approx. 100) of accounts participating in US political discussion during October 2020. Twitter's filter API returns Tweet objects when any of the queried accounts publish a tweet, and when tweets mentioning (replies, retweets, mentions) any of the queried accounts are published. Once the data had been collected, retweet interactions between accounts were processed out of the raw Tweet objects in the form account_retweeting - account_being_retweeted - number_of_retweets_observed. Account names were then converted into a set of integers in order to anonymize the data. This data was then written to disk as a csv in the form Source,Target,Weight - allowing it to be directly imported into gephi (https://gephi.org) for graph visualization purposes. The retweet data can be found in this repository (twitter_ratings/ratings.csv).
+This repository consists of two datasets of anonymized retweet interactions between Twitter accounts:
 
-The dataset contains 52920 rows representing interactions between 25137 retweeters and 8405 retweeted across a total of 95893 retweet interactions. Some additional statistics about the dataset are generated in the code below.
+## US2020
+This dataset was collected using the filter function of Twitter's streaming API (https://developer.twitter.com/en/docs/twitter-api/v1/tweets/filter-realtime/api-reference/post-statuses-filter). The filter API was instructed to capture Tweet objects from a small number (approx. 100) of accounts participating in US political discussion during October 2020. Twitter's filter API returns Tweet objects when any of the queried accounts publish a tweet, and when tweets mentioning (replies, retweets, mentions) any of the queried accounts are published.
+
+This dataset contains 52920 rows representing interactions between 25137 retweeters and 8405 retweeted across a total of 95893 retweet interactions. Some additional statistics about the dataset are generated in the accompanying notebook.
+
+## UK2019
+This dataset was collected using the filter function of Twitter's streaming API (https://developer.twitter.com/en/docs/twitter-api/v1/tweets/filter-realtime/api-reference/post-statuses-filter). The filter API was instructed to capture Tweet objects matching a small number of hashtags related to the December 12th 2019 UK general election. Hashtags included #GE2019, #GE19, #generalelection2019 and #generalelection19.
+
+This dataset contains 112963 rows representing interactions between 35007 retweeters and 3057 retweeted across a total of 123890 retweet interactions. Some additional statistics about the dataset are generated in the accompanying notebook.
+
+In both cases, once the data had been collected, retweet interactions between accounts were processed out of the raw Tweet objects in the form account_retweeting - account_being_retweeted - number_of_retweets_observed. Account names were anonymized by replacing the Twitter user's screen_name with an anonymized name in the form user_XXXXXX. This data was then written to disk as a csv in the form Source,Target,Weight - allowing it to be directly imported into gephi (https://gephi.org) for graph visualization purposes. Both datasets can be found in this repository under UK2019/anonymized_interactions.csv and US2020/anonymized_interactions.csv. 
+
+

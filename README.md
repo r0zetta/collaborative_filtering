@@ -48,13 +48,13 @@ Each step is clearly labeled in the notebook.
 
 ## Libraries used
 
-Numpy (https://numpy.org/)
-Pandas (https://pandas.pydata.org/)
-NetworkX (https://networkx.org/)
-Louvian community detection (https://github.com/taynaud/python-louvain)
-Collaborative filtering model: fastai collab_learner (https://docs.fast.ai/collab)
-Cosine similarity matrix: sklearn cosine_similarity (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
-Visualizsation: matplotlib (https://matplotlib.org/) and seaborn (https://seaborn.pydata.org/)
+- Numpy (https://numpy.org/)
+- Pandas (https://pandas.pydata.org/)
+- NetworkX (https://networkx.org/)
+- Louvian community detection (https://github.com/taynaud/python-louvain)
+- Collaborative filtering model: fastai collab_learner (https://docs.fast.ai/collab)
+- Cosine similarity matrix: sklearn cosine_similarity (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
+- Visualizsation: matplotlib (https://matplotlib.org/) and seaborn (https://seaborn.pydata.org/)
 
 
 ## Recommendation algorithm implementations

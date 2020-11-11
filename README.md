@@ -106,3 +106,24 @@ This dataset contains 112963 rows representing interactions between 35007 retwee
 In both cases, once the data had been collected, retweet interactions between accounts were processed out of the raw Tweet objects in the form account_retweeting - account_being_retweeted - number_of_retweets_observed. Account names were anonymized by replacing the Twitter user's screen_name with an anonymized name in the form user_XXXXXX. This data was then written to disk as a csv in the form Source,Target,Weight - allowing it to be directly imported into gephi (https://gephi.org) for graph visualization purposes. Both datasets can be found in this repository under UK2019/anonymized_interactions.csv and US2020/anonymized_interactions.csv. 
 
 
+# Caveats
+
+The data we're working with is fixed - it's a snapshot collected over a short period of time. 
+
+The data also only includes interactions between a limited number of accounts (those that interacted with the small number of users queried during the data collection process). 
+
+One may view this experiment as a series of "what-if" experiments, which demonstrate how recommendations in the system would have changed if retweet activity had been different to the originally recorded behaviour.
+
+The algorithms demonstrated in this notebook were implemented by me and are intentionally simple. 
+
+Social network recommendation methodology is likely based on similar principles as demonstrated here (i.e. collaborative filtering, plus some additional logic), but may utilize other available information such as:
+- which accounts the user is following or being followed by
+- metrics related to content a user viewed and how long they viewed that content for
+- hashtags the user has included in their posts
+- accounts the user has tagged in their posts
+- accounts the user has replied to
+- likes (which are not available via the Twitter API)
+- the user's geographical region
+- the user's language settings
+- and so on.
+

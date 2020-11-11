@@ -98,16 +98,16 @@ This dataset was collected using the filter function of Twitter's streaming API 
 
 This dataset contains 52920 rows representing interactions between 25137 retweeters and 8405 retweeted across a total of 95893 retweet interactions. Some additional statistics about the dataset are generated in the accompanying notebook.
 
-user_025303 was chosen as the high-profile account. This verified Twitter account belongs to a US politician, and receives a great deal of engagement on the platform.
-user_004286 was chosen as the target account. This non-verified Twitter account actively participates in US political conversation, and often shares disinformation.
+**user_025303** was chosen as the high-profile account. This verified Twitter account belongs to a US politician, and receives a great deal of engagement on the platform.
+**user_004286** was chosen as the target account. This non-verified Twitter account actively participates in US political conversation, and often shares disinformation.
 
 ## UK2019
 This dataset was collected using the filter function of Twitter's streaming API (https://developer.twitter.com/en/docs/twitter-api/v1/tweets/filter-realtime/api-reference/post-statuses-filter). The filter API was instructed to capture Tweet objects matching a small number of hashtags related to the December 12th 2019 UK general election. Hashtags included #GE2019, #GE19, #generalelection2019 and #generalelection19.
 
 This dataset contains 112963 rows representing interactions between 35007 retweeters and 3057 retweeted across a total of 123890 retweet interactions. Some additional statistics about the dataset are generated in the accompanying notebook.
 
-user_035060 was chosen as the high-profile account. This verified Twitter account belongs to a popular left-wing activist that receives a great deal of engagement on the platform.
-user_035067 was chosen as the target account. This non-verified Twitter account actively participates in UK political conversation, is a noteable proponent of Brexit, an avid supporter of the UK Conservative party, and often shares disinformation.
+**user_035060** was chosen as the high-profile account. This verified Twitter account belongs to a popular left-wing activist that receives a great deal of engagement on the platform.
+**user_035067** was chosen as the target account. This non-verified Twitter account actively participates in UK political conversation, is a noteable proponent of Brexit, an avid supporter of the UK Conservative party, and often shares disinformation.
 
 In both cases, once the data had been collected, retweet interactions between accounts were processed out of the raw Tweet objects in the form account_retweeting - account_being_retweeted - number_of_retweets_observed. Account names were anonymized by replacing the Twitter user's screen_name with an anonymized name in the form user_XXXXXX. This data was then written to disk as a csv in the form Source,Target,Weight - allowing it to be directly imported into gephi (https://gephi.org) for graph visualization purposes. Both datasets can be found in this repository under UK2019/anonymized_interactions.csv and US2020/anonymized_interactions.csv. 
 

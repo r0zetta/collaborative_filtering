@@ -67,9 +67,9 @@ Using the target-based cosine similarity matrix, one can generate recommendation
 
 In pseudocode:
 
-> for target, num_retweets in get_source_retweets(source):
->     for similar, similarity in get_most_similar(target):
->         recommended[similar] += num_retweets * similarity
+` for target, num_retweets in get_source_retweets(source):
+      for similar, similarity in get_most_similar(target):
+         recommended[similar] += num_retweets * similarity`
 
 2. Source-based similarity
 
@@ -77,9 +77,9 @@ Using the source-based cosine similarity matrix, one can generate a ranked list 
 
 In pseudocode:
 
-> for similar_source, similarity in get_most_similar(source):
->     for target, num_retweets in get_source_retweets(similar_source):
->         recommended[target] += similarity * num_retweets
+` for similar_source, similarity in get_most_similar(source):
+     for target, num_retweets in get_source_retweets(similar_source):
+         recommended[target] += similarity * num_retweets`
 
 
 Both of the above mechanisms will generate a ranked list of target accounts to recommend to the source - a list of targets and score values where higher scores are more highly recommended. By comparing this ranked list to a list of accounts the source has already interacted with, a list of recommendations of targets the user hasn't yet interacted with can be generated.

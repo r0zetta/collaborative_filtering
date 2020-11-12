@@ -140,6 +140,21 @@ Note that it would be extremely difficult to determine how close the algorithms 
 
 # Results and discussion
 
+## Experiment 1: Randomly chosen amplifiers
+
+The following bar charts depict the effect of varying numbers of amplifier accounts and retweet counts on both the US2020 and UK2019 datasets. Each bar represents the mean percentage of control accounts that were recommended the target account in the top-3 source-based recomendations over 10 runs. Error bars indicate the minimum and maximum values across those ten runs.
+
+**NOTE** these experiments had no effect on the target-based recommendation algorithm. All bar charts associated with those experiments are empty, and thus are not shown. This is the case across all of the conducted experiments.
+
+![experiment 1 US2020 source-based recommendations](images/fastai_US2020_exp1.png)
+![experiment 1 UK2019 source-based recommendations](images/fastai_UK2019_exp1.png)
+
+
+
+
+
+
+
 # Conclusions
 
 # Appendix

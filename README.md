@@ -151,7 +151,7 @@ The following bar charts depict the effect of varying numbers of amplifier accou
 ![experiment 1 US2020 source-based recommendations](images/fastai_US2020_exp1.png)
 ![experiment 1 UK2019 source-based recommendations](images/fastai_UK2019_exp1.png)
 
-Upon inspection, it is clear that the experimental methodology was more effective at manipulating recommendations for the UK2019 dataset. This is noticeable at lower values (200 amplifiers with 50 retweets were required to obtain 50% coverage in the US2020 dataset versus 200 amplifiers and 10 retweets for the UK2019 dataset). At higher values, we observe that 1000 amplifiers with 1 retweet and 2000 amplifiers with 1 retweet were much more impactful on the recommendations of the UK2019 models. 
+Upon inspection, it is clear that the experimental methodology was more effective at manipulating recommendations for the UK2019 dataset. This is noticeable at lower values (200 amplifiers with 50 retweets were required to obtain 50% coverage in the US2020 dataset versus 200 amplifiers and 10 retweets for the UK2019 dataset). At higher values, we observe that 1000 amplifiers with 1 retweet and 2000 amplifiers with 1 retweet were much more impactful on the recommendations of the UK2019 models.
 
 It is interesting to note what happens to graph visualizations of these networks as we add edges. Here's the baseline UK2019 dataset with the target and high-profile accounts highlighted. Note the separation between the two accounts of interest.
 
@@ -169,6 +169,7 @@ Note how close together the two nodes of interest are when we use 200 amplifiers
 
 ![UK2019 200_20 annotated](images/fastai_UK2019_exp1_200_20_4_anon.png)
 
+This attack methodology becomes quite effective at low numbers of amplifiers (100-500) when the number of retweets is increased. This is significant for attackers who don't have access to large number of fake accounts, or smaller followback rings. However, larger collaborative communities on Twitter can easily exert pressuer on recommendations with just a few retweets. Note that it is entirely possible that members of a followback ring may already have retweeted the high-profile account or the target, thus lessening the resulting requirements for good attack coverage.
 
 Since the US2020 dataset was created by following specific Twitter accounts, it is likely more similar to the sort of feed a user on that platform would see on their home timeline. By default, Twitter curates a user's home timeline, and thus if it were to use a retweet similarity algorithm similar to the one implemented in these experiments, it would be susceptible to such manipulation. Twitter has openly stated that they factor "Likes" into building timelines, so it may be possible that a similar mechanism using the "Like" button instead of the "Retweet" button may be effective at surfacing content on the control users' timelines in real life. This method may also be relevant if Twitter's recommendations for which accounts that user should follow were based on a similar mechanism (although that is not likely to be the case).
 
@@ -185,6 +186,14 @@ Here's the bar chart for the UK2019 dataset. Bear in mind that using randomly ch
 ![experiment 2 UK2019 source-based recommendations](images/fastai_UK2019_exp2.png)
 
 Community had little effect on recommendation outcomes in the UK2019 case.
+
+## Experiment 3: Amplifiers chosen based on similarity to control accounts
+
+The following bar charts depict experimental results where amplifiers with high similarity to the twenty control accounts were selected. A range of amplifier count - retweet count parameters were tried.
+
+![experiment 3 US2020 source-based recommendations](images/fastai_US2020_exp3.png)
+
+![experiment 3 UK2019 source-based recommendations](images/fastai_UK2019_exp3.png)
 
 
 # Conclusions

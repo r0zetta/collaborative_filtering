@@ -189,6 +189,12 @@ Community had little effect on recommendation outcomes in the UK2019 case.
 
 XXX more discussion on this and also re-run the experiment to determine which communities the target and high-profile belonged to
 
+New run for US2020:
+high_profile: user_025303 in community: 1 size: 4536
+target: user_004286 in community: 3 size: 1936
+
+New run for UK2019:
+
 ## Experiment 3: Amplifiers chosen based on similarity to control accounts
 
 The following bar charts depict experimental results where amplifiers with high similarity to the twenty control accounts were selected. A range of amplifier count - retweet count parameters were tried.

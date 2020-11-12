@@ -178,9 +178,9 @@ Since the US2020 dataset was created by following specific Twitter accounts, it 
 The following bar charts depict experimental results from selecting amplifiers based on Louvian community detection applied to a node-edge graph of the baseline datasets, and using fixed 200 amplifiers with 20 retweets parameters.
 
 Here's the bar chart for the US2020 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 30% of the control set being recommended the target account.
-![experiment 2 US2020 source-based recommendations](images/fastai_US2020_exp2.png)
+![experiment 2 US2020 source-based recommendations](images/fastai_US2020_exp2_1_annotated.png)
 
-Here we can see that community had significant effects on the resulting recommendations. Communities 6 and 7 saw a marked reduction in effectiveness of the attack as compared with a random selection of amplifiers. Communities 8 and 18 worked significantly better than the baseline.
+Here we can see that community had significant effects on the resulting recommendations. Communities 6 and 7 saw a marked reduction in effectiveness of the attack as compared with a random selection of amplifiers. Communities 8 and 18 worked significantly better than the baseline. Note that assigning amplifier accounts from communities 1 and 3 (the communities that the high-profile and target accounts belonged to) didn't increase the effectiveness of the attack.
 
 Here's the bar chart for the UK2019 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 50% of the control set being recommended the target account.
 ![experiment 2 UK2019 source-based recommendations](images/fastai_UK2019_exp2.png)
@@ -189,11 +189,9 @@ Community had little effect on recommendation outcomes in the UK2019 case.
 
 XXX more discussion on this and also re-run the experiment to determine which communities the target and high-profile belonged to
 
-New run for US2020:
-high_profile: user_025303 in community: 1 size: 4536
-target: user_004286 in community: 3 size: 1936
-
 New run for UK2019:
+target: user_035067 in community: 6 size: 5421
+high_profile: user_035060 in community: 13 size: 3041
 
 ## Experiment 3: Amplifiers chosen based on similarity to control accounts
 

@@ -22,6 +22,9 @@ A much more common poisoning approach involves a large number of users collectiv
 - those tweets are retweeted by hundreds or thousands of other participating accounts
 - when a user follows one of the mentioned accounts, that account will follow them back
 
+![followback_train](images/followback_coordination.png)
+
+
 The mechanism results in large groups of accounts that follow each other. It is not uncommon to find accounts on Twitter that follow and are followed by tens of thousands of other accounts. These followback rings, or retweet rooms, then collaborate to amplify content, keywords, phrases, or hashtags.
 
 Twitter coordination is also used to boost brand new Twitter accounts. The process is documented here https://blog.f-secure.com/discovering-hidden-twitter-amplification/.

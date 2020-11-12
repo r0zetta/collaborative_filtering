@@ -187,6 +187,8 @@ Here's the bar chart for the UK2019 dataset. Bear in mind that using randomly ch
 
 Community had little effect on recommendation outcomes in the UK2019 case.
 
+XXX more discussion on this and also re-run the experiment to determine which communities the target and high-profile belonged to
+
 ## Experiment 3: Amplifiers chosen based on similarity to control accounts
 
 The following bar charts depict experimental results where amplifiers with high similarity to the twenty control accounts were selected. A range of amplifier count - retweet count parameters were tried.
@@ -195,11 +197,28 @@ The following bar charts depict experimental results where amplifiers with high 
 
 ![experiment 3 UK2019 source-based recommendations](images/fastai_UK2019_exp3.png)
 
+Generally speaking, choosing accounts similar to the control set as opposed to at random imparted a roughly 10% increase to the effectiveness of baseline attacks that achieved 60% or less coverage. Since more aggressive attacks (those that utilized 1000 or more amplifiers) were already nearing full coverage, choosing amplifiers similar to the control set had no noticeable effect.
+
+This result is interesting with respect to a social engineering attack scenario. An attacker who wishes to specifically target an individual can instruct fake accounts to behave the same way as the victim account - i.e. have those fake accounts spend a few days retweeting the same content as the victim account prior to launching the actual attack.
 
 # Conclusions
 
-# Appendix
+- adding even small numbers of interactions can have a marked effect on network structure and collaborative filter models
+- the stuff that followback rings do likely has an effect on Twitter's recommendation algorithms
+- although the people involved in followback rings probably haven't thought about how the algorithms work, they've managed to adopt behaviours that cause their messages to get through to others
+- these messages mostly end up in their own filter bubbles
+- if they were to adopt different behaviours, based on these experiments, they may be able to push their content to the wider Twittersphere
+- these experiments don't reflect the real situation on social networks, but do give us an idea as to how coordinated behaviour on these platforms likely have an effect
+- detection approaches
+  - for large numbers of amplifiers and a single or couple of tweets, this would be very difficult to detect
+    - some tweets go viral, and as such, an account that never received a lot of engagement may suddenly receive it. Determining whether this was because of virality or because of coordinated amplification is difficult
+    - some accounts are influencers. Their posts always receive a lot of retweets. In both of these experiments, both the target and high-profile account receive a lot of engagement by default. This type of attack wouldn't be noticed amongst all the other engagement they already receive.
+  - for larger numbers of retweets, it should be possible to notice a change in retweet freq dist and determine which accounts participated
+  - XXX show retweet frequency distribution
+  - if the distance betweentwo nodes on a graph changes suddenly and drastically, it might be an indication of this
 
+
+# Appendix
 
 ## Libraries used
 

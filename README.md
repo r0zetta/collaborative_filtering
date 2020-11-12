@@ -161,7 +161,7 @@ Here's the same graph, but with 500 amplifiers, 1 retweet each. Note how the nod
 
 With 1000 amplifiers, 1 retweet each. Nodes move even closer.
 
-![UK2019 1000_1 annotated](images/fastai_UK2019_exp1_1000_1_9_anon.png)
+![UK2019 1000_1 annotated](images/fastai_UK2019_exp1_1000_1_1_anon.png)
 
 Note how close together the two nodes of interest are when we use 200 amplifiers, 20 retweets each.
 

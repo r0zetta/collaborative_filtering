@@ -177,8 +177,12 @@ The following bar charts depict experimental results from selecting amplifiers b
 Here's the bar chart for the US2020 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 30% of the control set being recommended the target account.
 ![experiment 2 US2020 source-based recommendations](images/fastai_US2020_exp2.png)
 
+Here we can see that community had significant effects on the resulting recommendations. Communities 6 and 7 saw a marked reduction in effectiveness of the attack as compared with a random selection of amplifiers. Communities 8 and 18 worked significantly better than the baseline.
+
 Here's the bar chart for the UK2019 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 50% of the control set being recommended the target account.
 ![experiment 2 UK2019 source-based recommendations](images/fastai_UK2019_exp2.png)
+
+Community had little effect on recommendation outcomes in the UK2019 case.
 
 
 # Conclusions

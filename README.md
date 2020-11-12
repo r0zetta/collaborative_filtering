@@ -46,7 +46,14 @@ All experiments documented here follow the procedure outlined below:
 8. Run both target-based and source-based recommendations for each member of the control group and record the number of times the target appeared in the top-n (3) recommendations.
 9. Present and discuss the results.
 
-If you're interested in how this was implemented, take a look at the accompanying jupyter notebooks.
+In all cases, experiments were run for 10 iterations in order to obtain an average value and corresponding error bars.
+
+For each dataset, the following experiments were run:
+1. Amplifier accounts were selected at random from the entire dataset. Different numbers of amplifiers and retweet counts were tried. This experiment was run to determine lower bounds for effective algorithmic manipulation, and a study of the effects of large-scale manipulation at higher values.
+2. Amplifiers accounts were chosen from communities derived from applying the Louvian community detection algorithm across a node-edge graph of the original dataset. For each community with at least 200 members, the experiment was run with a fixed 200 amplifiers, each performing 20 retweets of both target account and high-profile account. This experiment was run to determine whether community membership contributes to the effectiveness of algorithmic manipulation.
+3. A set of amplifiers with high cosine similarity to the members of the control set were selected. As in experiment 1, varying numbers of amplifiers and retweets were tested. This experiment was designed to determine whether similarity to the control set contributes to the effectiveness of algorithmic manipulation.
+
+If you're interested in the details of these implementations, take a look at the accompanying jupyter notebooks.
 
 ## About the datasets
 This repository contains two datasets that represent anonymized retweet interactions between Twitter accounts. All data was captured directly from Twitter. The two datasets are described in more detail below.
@@ -130,6 +137,14 @@ Note that the recommendation algorithms implemented in these experiments are int
 
 Note that it would be extremely difficult to determine how close the algorithms implemented in this experiment match the underlying mechanisms in real social networks such as Twitter. The data we're working with is fixed - it's a snapshot collected over a short period of time. The data also only includes interactions between a limited number of accounts. One may view this experiment as a series of "what-if" experiments, which demonstrate how recommendations in the system would have changed if retweet activity had been different to the originally recorded behaviour.
 
+
+# Results and discussion
+
+# Conclusions
+
+# Appendix
+
+
 ## Libraries used
 
 - Numpy (https://numpy.org/)
@@ -139,7 +154,3 @@ Note that it would be extremely difficult to determine how close the algorithms 
 - Collaborative filtering model: fastai collab_learner (https://docs.fast.ai/collab)
 - Cosine similarity matrix: sklearn cosine_similarity (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
 - Visualizsation: matplotlib (https://matplotlib.org/) and seaborn (https://seaborn.pydata.org/)
-
-# Results and discussion
-
-# Conclusions

@@ -172,7 +172,13 @@ Since the US2020 dataset was created by following specific Twitter accounts, it 
 
 ## Experiment 2: Amplifiers chosen based on community
 
+The following bar charts depict experimental results from selecting amplifiers based on Louvian community detection applied to a node-edge graph of the baseline datasets, and using fixed 200 amplifiers with 20 retweets parameters.
 
+Here's the bar chart for the US2020 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 30% of the control set being recommended the target account.
+![experiment 2 US2020 source-based recommendations](images/fastai_US2020_exp2.png)
+
+Here's the bar chart for the UK2019 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 50% of the control set being recommended the target account.
+![experiment 2 UK2019 source-based recommendations](images/fastai_UK2019_exp2.png)
 
 
 # Conclusions

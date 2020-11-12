@@ -1,17 +1,30 @@
-# collaborative_filtering
-This repository contains a report (this README) and accompanying code and data that detail a set of experiments designed to simulate theoretical poisoning attacks against social network recomendation mechanisms.
-
-
+# Simulating poisoning attacks against collaborative filtering-based recommendation mechanisms
+This repository details a number of experiments designed to simulate attacks against social network recomendation mechanisms, and evaluate their effectiveness.
 
 # Introduction
-It is highly likely that social networks utilize collaborative filtering mechanisms to recommend actions and content to users. A variety of recommendation mechanisms exist on these platforms, each tailored for their own specific purposes. Examples may include recommendations for other users to follow (Twitter), or groups to join (Facebook), construction of curated timelines or search results (Twitter), and recommendations for content to view next (YouTube).
+Social networks employ a variety of mechanisms designed to recommend content and actions to users. These mechanisms are designed to suggest other users to follow (Twitter), suggest groups to join (Facebook), construct curated timelines and search results (Twitter), and recommend videos to watch (YouTube). It is highly likely that some of these mechanisms utilize collaborative filtering techniques. Collaborative filtering is a machine learning technique that calculates similarities between users and items based on recorded user preference data. Similarity vectors contained in a trained collaborative filtering model can then be used to output recommendations for any user in the system. Recommendations are typically based on one of two criteria:
+- user-based recommendations recommend items that were popular with similar users
+- item-based recommendations recommend items that are similar to other items the user has interacted with
 
-Collaborative filtering techniques consume user preference data in order to build models that can be used to recommend items to users in a system. Recommendations are typically based on one of two criteria:
-- user-based recommendations recommend items that were most popular with similar users
-- item-based recommendations recommend items that are most similar to other items the user has interacted with
+Knowledge of how these mechanisms work can be used to craft attacks against recommender systems. A number of motives exist for such attacks:
+- promotion attacks: 
+  - cause a piece of content, item, or user to be ranked similar to another piece of content, item, or user in the system.
+  - cause a piece of content, item, or user to appear at a higher position in a user's timeline or in search results.
+- demotion attacks:
+  - cause a piece of content, item, or user to be ranked less similar to another piece of content, item, or user in the system.
+  - cause a piece of content, item, or user to appear at a lower position (or not at all) in a user's timeline or in search results.
+- social engineering: if an adversary already has knowledge on how a specific user has interacted with items in the system, an attack can be crafted to target that user with a recommendation.
 
-While we don't know exactly how public social network recommendation mechanisms are implemented, we can 
+The most widely used attacks against recommender mechanisms are Sybil attacks. The attack process is straightforward – an adversary creates several fake users or accounts, and has them engage with items in patterns designed to change how that item is recommended to other users. Here, the term ‘engage’ is dependent on the system being attacked, and could include rating an item, reviewing a product, browsing a number of items, following a user, adding items to a shopping basket or wishlist, or liking a post. Attackers may probe the system using ‘throw-away’ accounts in order to understand underlying recommendation mechanisms, and to test whether any detection capabilities exist in the system. Skilled attackers carefully automate their fake users to behave like normal users in order to avoid Sybil attack detection techniques. Such approaches are facilitated by a plethora of inexpensive services available on the Internet. These services allow an attacker to purchase views, likes, retweets, followers, reviews, and ratings on all of the big-name social networks, crowdsourced review sites, app stores, and ecommerce sites. You can read more commentary on this phenomenon here https://blog.f-secure.com/how-ai-is-already-being-poisoned-against-you/.
 
+A much more common poisoning approach involves a large number of users collectively agreeing to perform a specific action in order to achieve a goal (promote a piece of content, promote a user, cause a phrase, keyword, or hashtag to trend, etc.) Coordinated promotion attacks are extremely common on Twitter. Users form large groups using "followback" mechanisms:
+- many accounts post tweets that contain lists of accounts to follow
+- those tweets are retweeted by hundreds or thousands of other participating accounts
+- when a user follows one of the mentioned accounts, that account will follow them back
+
+The mechanism results in large groups of accounts that follow each other. It is not uncommon to find accounts on Twitter that follow and are followed by tens of thousands of other accounts. These followback rings, or retweet rooms, then collaborate to amplify content, keywords, phrases, or hashtags.
+
+Twitter coordination is also used to boost brand new Twitter accounts. The process is documented here https://blog.f-secure.com/discovering-hidden-twitter-amplification/.
 
 
 ## AIM
@@ -98,7 +111,7 @@ This dataset was collected using the filter function of Twitter's streaming API 
 
 This dataset contains 52920 rows representing interactions between 25137 retweeters and 8405 retweeted across a total of 95893 retweet interactions. Some additional statistics about the dataset are generated in the accompanying notebook.
 
-**user_025303** was chosen as the high-profile account. This verified Twitter account belongs to a US politician, and receives a great deal of engagement on the platform.
+**user_025303** was chosen as the high-profile account. This verified Twitter account belongs to a US politician and receives a great deal of engagement on the platform.
 **user_004286** was chosen as the target account. This non-verified Twitter account actively participates in US political conversation, and often shares disinformation.
 
 ## UK2019
@@ -106,8 +119,8 @@ This dataset was collected using the filter function of Twitter's streaming API 
 
 This dataset contains 112963 rows representing interactions between 35007 retweeters and 3057 retweeted across a total of 123890 retweet interactions. Some additional statistics about the dataset are generated in the accompanying notebook.
 
-**user_035060** was chosen as the high-profile account. This verified Twitter account belongs to a popular left-wing activist that receives a great deal of engagement on the platform.
-**user_035067** was chosen as the target account. This non-verified Twitter account actively participates in UK political conversation, is a noteable proponent of Brexit, an avid supporter of the UK Conservative party, and often shares disinformation.
+**user_035060** was chosen as the high-profile account. This verified Twitter account belongs to a popular activist that receives a great deal of engagement from left-wing users on the platform.
+**user_035067** was chosen as the target account. This non-verified Twitter account actively participates in UK political conversation, is a noteable proponent of Brexit, an avid supporter of the UK Conservative party, and sometimes shares disinformation.
 
 In both cases, once the data had been collected, retweet interactions between accounts were processed out of the raw Tweet objects in the form account_retweeting - account_being_retweeted - number_of_retweets_observed. Account names were anonymized by replacing the Twitter user's screen_name with an anonymized name in the form user_XXXXXX. This data was then written to disk as a csv in the form Source,Target,Weight - allowing it to be directly imported into gephi (https://gephi.org) for graph visualization purposes. Both datasets can be found in this repository under UK2019/anonymized_interactions.csv and US2020/anonymized_interactions.csv. 
 

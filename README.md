@@ -56,7 +56,9 @@ For each dataset, the following experiments were run:
 If you're interested in the details of these implementations, take a look at the accompanying jupyter notebooks.
 
 ## About the datasets
-This repository contains two datasets that represent anonymized retweet interactions between Twitter accounts. All data was captured directly from Twitter. The two datasets are described in more detail below.
+This repository contains two datasets that represent anonymized retweet interactions between Twitter accounts. All data was captured directly from Twitter. The reason why retweet interactions were chosen for this experiment is because those interactions can be extracted directly from Tweet objects obtained via the API. At this moment it is not possible to obtain Like interactions using that API.
+
+The two datasets are described in more detail below.
 
 ### US2020
 This dataset was collected using the filter function of Twitter's streaming API (https://developer.twitter.com/en/docs/twitter-api/v1/tweets/filter-realtime/api-reference/post-statuses-filter). The filter API was instructed to capture Tweet objects from approximately 100 accounts participating in US political discussion during mid-October 2020. Twitter's filter API returns Tweet objects when any of the queried accounts publish a tweet, and when tweets mentioning (replies, retweets, mentions) any of the queried accounts are published.

@@ -149,8 +149,28 @@ The following bar charts depict the effect of varying numbers of amplifier accou
 ![experiment 1 US2020 source-based recommendations](images/fastai_US2020_exp1.png)
 ![experiment 1 UK2019 source-based recommendations](images/fastai_UK2019_exp1.png)
 
+Upon inspection, it is clear that the experimental methodology was more effective at manipulating recommendations for the UK2019 dataset. This is noticeable at lower values (200 amplifiers with 50 retweets were required to obtain 50% coverage in the US2020 dataset versus 200 amplifiers and 10 retweets for the UK2019 dataset). At higher values, we observe that 1000 amplifiers with 1 retweet and 2000 amplifiers with 1 retweet were much more impactful on the recommendations of the UK2019 models. 
+
+It is interesting to note what happens to graph visualizations of these networks as we add edges. Here's the baseline UK2019 dataset with the target and high-profile accounts highlighted. Note the separation between the two accounts of interest.
+
+![UK2019 baseline annotated](images/fastai_UK2019_base_trimmed_anon.png)
+
+Here's the same graph, but with 500 amplifiers, 1 retweet each. Note how the nodes of interest have moved closer together.
+
+![UK2019 500_1 annotated](images/fastai_UK2019_exp1_500_1_9_anon.png)
+
+With 1000 amplifiers, 1 retweet each. Nodes move even closer.
+
+![UK2019 1000_1 annotated](images/fastai_UK2019_exp1_1000_1_9_anon.png)
+
+Note how close together the two nodes of interest are when we use 200 amplifiers, 20 retweets each.
+
+![UK2019 200_20 annotated](images/fastai_UK2019_exp1_200_20_4_anon.png)
 
 
+Since the US2020 dataset was created by following specific Twitter accounts, it is likely more similar to the sort of feed a user on that platform would see on their home timeline. By default, Twitter curates a user's home timeline, and thus if it were to use a retweet similarity algorithm similar to the one implemented in these experiments, it would be susceptible to such manipulation. Twitter has openly stated that they factor "Likes" into building timelines, so it may be possible that a similar mechanism using the "Like" button instead of the "Retweet" button may be effective at surfacing content on the control users' timelines in real life. This method may also be relevant if Twitter's recommendations for which accounts that user should follow were based on a similar mechanism (although that is not likely to be the case).
+
+## Experiment 2: Amplifiers chosen based on community
 
 
 

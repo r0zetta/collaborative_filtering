@@ -148,6 +148,8 @@ The following bar charts depict the effect of varying numbers of amplifier accou
 
 These experiments had no effect on the target-based recommendation algorithm. All bar charts associated with those experiments are empty, and thus are not shown. This is the case across all of the conducted experiments.
 
+XXX discussion as to why the target-based recommendation algorithm didn't work?
+
 ![experiment 1 US2020 source-based recommendations](images/fastai_US2020_exp1.png)
 ![experiment 1 UK2019 source-based recommendations](images/fastai_UK2019_exp1.png)
 

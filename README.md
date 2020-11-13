@@ -39,7 +39,7 @@ All experiments documented here follow the procedure outlined below:
 1. Load a dataset of anonymized retweet interactions collected from actual Twitter data.
 2. Train a collaborative filtering model on the loaded data.
 3. Select a target account to be "amplified" such that it is recommended to a set of users who have interacted with a separate, high-profile user also in the dataset. We select 20 such users as a "control" set.
-4. Implement simple recommendation logic based on cosine similarity of the vector representations of the trained model, and observe recommendations for the control set.
+4. Implement recommendation logic based on cosine similarity of the vector representations of the trained model, and observe recommendations for the control set.
 5. Select a set of "amplifier accounts" that have not interacted with either the target account or the high-profile account.
 6. For a number of different proposed sets of amplifier accounts and parameter choices, create a new dataset containing additional interactions between each selected amplifier account and both the target account and the high-profile account. In practise, this process involves appending two new rows per amplifier account - one adding a retweet count for the target account and another adding retweet count for the high-profile account.
 7. Train a new model on the modified dataset.
@@ -90,9 +90,9 @@ In both cases, once raw Twitter data had been collected, retweet interactions be
 Account names were anonymized by replacing the Twitter user's screen_name with an anonymized name in the form **user_XXXXXX**. This data was then written to disk as a csv in the form Source,Target,Weight - allowing it to be read into Pandas dataframes and directly imported into gephi (https://gephi.org) for graph visualization purposes. Both datasets can be found in this repository under UK2019/anonymized_interactions.csv and US2020/anonymized_interactions.csv. 
 
 ## Recommendation algorithm implementations
-The fastai collaborative filtering model consists of a set of learned weights for both sources and targets. A cosine similarity matrix can be built from each of these sets of vectors, thus allowing one to query the similarity between any given pair of sources or targets. Using these cosine similarity matrices, one can implement the following simple recommendation algorithms that can be used to reccommend accounts to a user based on who the user has retweeted.
+The fastai collaborative filtering model consists of a set of learned weights for both sources and targets. A cosine similarity matrix can be built from each of these sets of vectors, thus allowing one to query the similarity between any given pair of sources or targets. Using these cosine similarity matrices, user-based and item-based recommendation logic can be implemented.
 
-### Target-based similarity
+### Target-based (item-based) similarity
 Using the target-based cosine similarity matrix, recommendations can be calculated for a source based on who they've retweeted. For a given source, obtain a list of all target accounts they've retweeted and the number of times the source retweeted that account. For each of the target accounts identified, obtain a list of _t_max_matches_ most similar accounts from the (previously calculated) target-based cosine similarity matrix. For each of these, multiply the similarity value (between the source account and the target account) with the number of times the source retweeted the target account, and add that value to a running total score for each target retweeted account.
 
 In pseudocode:
@@ -102,7 +102,7 @@ for target, num_retweets in get_source_retweets(source):
         recommended[similar] += num_retweets * similarity
 ```
 
-### Source-based similarity
+### Source-based (user-based) similarity
 Using the source-based cosine similarity matrix, a ranked list of recommendations can be generated for a given source account as follows. First obtain a list of _s_max_matches_ accounts most similar to the source account. For each of these accounts, obtain a list of target accounts they retweeted, and the number of times they retweeted. For each target-retweeted_count pair, multiply retweeted_count by the similarity value between the source and this account. Add that value to a running total score for each target retweeted account.
 
 In pseudocode:
@@ -114,19 +114,19 @@ for similar_source, similarity in get_most_similar(source):
 
 Both of the above mechanisms will generate a ranked list of target accounts to recommend to the source - a list of targets and score values where higher scores are more highly recommended. By comparing this ranked list to a list of accounts the source has already interacted with, a list of recommendations of targets the user hasn't yet interacted with can be generated.
 
-Note we can measure the effectiveness of both of these methods by comparing the ranked list of recommended accounts against accounts the user has already retweeted. The closer the lists match, the more accurate the recommendations are.
+The effectiveness of these methods can be determined by comparing the ranked list of recommended accounts against accounts the user has already retweeted. The more matches, the more accurate the recommendations are.
 
-Here is a sample output for the target-based recommendation algorithm. Note that only two of the calculated recommendations matched accounts the source had already interacted with.
+Here is a sample output for the target-based recommendation algorithm. Only two of the calculated recommendations matched accounts the source had already interacted with.
 
 ![target-based recommendations](images/US2020_target_recommendations.png)
 
-Here is a sample output for the source-based recommendation algorithm, based on the same user shown in the previous example. Here we note that nine of the calculated recommendations matched accounts the source had already interacted with.
+Here is a sample output for the source-based recommendation algorithm, based on the same user shown in the previous example. Nine of the calculated recommendations matched accounts the source had already interacted with.
 
 ![source-based recommendations](images/US2020_source_recommendations.png)
 
 Based on experimental results it is apparent that source-based recommendations are much more accurate.
 
-Note that the recommendation algorithms implemented in these experiments are intentionally simple. Social network recommendation methodology is likely based on similar principles (i.e. collaborative filtering, plus some additional logic), but may utilize other available information such as:
+The recommendation algorithms implemented in these experiments are intentionally simple. Social network recommendation mechanisms are likely based on similar principles (i.e. collaborative filtering, plus some additional logic), but may utilize other available information such as:
 - which accounts the user is following or being followed by
 - metrics related to content a user viewed and how long they viewed that content for
 - hashtags the user has included in their posts
@@ -137,7 +137,7 @@ Note that the recommendation algorithms implemented in these experiments are int
 - the user's language settings
 - and so on.
 
-Note that it would be extremely difficult to determine how close the algorithms implemented in this experiment match the underlying mechanisms in real social networks such as Twitter. The data we're working with is fixed - it's a snapshot collected over a short period of time. The data also only includes interactions between a limited number of accounts. One may view this experiment as a series of "what-if" experiments, which demonstrate how recommendations in the system would have changed if retweet activity had been different to the originally recorded behaviour.
+It would be difficult to determine how close the algorithms implemented in this experiment match the underlying mechanisms in real social networks such as Twitter. The data we're working with is fixed - a snapshot collected over a short period of time. The data also only includes interactions between a limited number of accounts. One may view this experiment as a series of "what-if" experiments, which demonstrate how recommendations in the system would have changed if retweet activity differed from originally recorded behaviour.
 
 
 # Results and discussion
@@ -146,18 +146,18 @@ Note that it would be extremely difficult to determine how close the algorithms 
 
 The following bar charts depict the effect of varying numbers of amplifier accounts and retweet counts on both the US2020 and UK2019 datasets. Each bar represents the mean percentage of control accounts that were recommended the target account in the top-3 source-based recomendations over 10 runs. Error bars indicate the minimum and maximum values across those ten runs.
 
-**NOTE** these experiments had no effect on the target-based recommendation algorithm. All bar charts associated with those experiments are empty, and thus are not shown. This is the case across all of the conducted experiments.
+These experiments had no effect on the target-based recommendation algorithm. All bar charts associated with those experiments are empty, and thus are not shown. This is the case across all of the conducted experiments.
 
 ![experiment 1 US2020 source-based recommendations](images/fastai_US2020_exp1.png)
 ![experiment 1 UK2019 source-based recommendations](images/fastai_UK2019_exp1.png)
 
 Upon inspection, it is clear that the experimental methodology was more effective at manipulating recommendations for the UK2019 dataset. This is noticeable at lower values (200 amplifiers with 50 retweets were required to obtain 50% coverage in the US2020 dataset versus 200 amplifiers and 10 retweets for the UK2019 dataset). At higher values, we observe that 1000 amplifiers with 1 retweet and 2000 amplifiers with 1 retweet were much more impactful on the recommendations of the UK2019 models.
 
-It is interesting to note what happens to graph visualizations of these networks as we add edges. Here's the baseline UK2019 dataset with the target and high-profile accounts highlighted. Note the separation between the two accounts of interest.
+It is interesting to observe what happens to graph visualizations of these networks as we add edges. Here's the baseline UK2019 dataset with the target and high-profile accounts highlighted. Note the separation between the two accounts of interest.
 
 ![UK2019 baseline annotated](images/fastai_UK2019_base_trimmed_anon.png)
 
-Here's the same graph, but with 500 amplifiers, 1 retweet each. Note how the nodes of interest have moved closer together.
+Here's the same graph, but with 500 amplifiers, 1 retweet each. The target and high-profile nodes have moved closer together.
 
 ![UK2019 500_1 annotated](images/fastai_UK2019_exp1_500_1_9_anon.png)
 
@@ -169,7 +169,7 @@ Note how close together the two nodes of interest are when we use 200 amplifiers
 
 ![UK2019 200_20 annotated](images/fastai_UK2019_exp1_200_20_4_anon.png)
 
-This attack methodology becomes quite effective at low numbers of amplifiers (100-500) when the number of retweets is increased. This is significant for attackers who don't have access to large number of fake accounts, or smaller followback rings. However, larger collaborative communities on Twitter can easily exert pressuer on recommendations with just a few retweets. Note that it is entirely possible that members of a followback ring may already have retweeted the high-profile account or the target, thus lessening the resulting requirements for good attack coverage.
+This attack methodology becomes quite effective at low numbers of amplifiers (100-500) when the number of retweets is increased. This is significant for attackers who don't have access to large number of fake accounts, or smaller followback rings. However, larger collaborative communities on Twitter can easily exert pressure on recommendations with just a few retweets. It is entirely possible that members of a followback ring may have already retweeted the high-profile account or the target, thus lessening the resulting requirements for good attack coverage.
 
 Since the US2020 dataset was created by following specific Twitter accounts, it is likely more similar to the sort of feed a user on that platform would see on their home timeline. By default, Twitter curates a user's home timeline, and thus if it were to use a retweet similarity algorithm similar to the one implemented in these experiments, it would be susceptible to such manipulation. Twitter has openly stated that they factor "Likes" into building timelines, so it may be possible that a similar mechanism using the "Like" button instead of the "Retweet" button may be effective at surfacing content on the control users' timelines in real life. This method may also be relevant if Twitter's recommendations for which accounts that user should follow were based on a similar mechanism (although that is not likely to be the case).
 
@@ -183,15 +183,11 @@ Here's the bar chart for the US2020 dataset. Bear in mind that using randomly ch
 Here we can see that community had significant effects on the resulting recommendations. Communities 6 and 7 saw a marked reduction in effectiveness of the attack as compared with a random selection of amplifiers. Communities 8 and 18 worked significantly better than the baseline. Note that assigning amplifier accounts from communities 1 and 3 (the communities that the high-profile and target accounts belonged to) had very little impact on the effectiveness of the attack.
 
 Here's the bar chart for the UK2019 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 50% of the control set being recommended the target account.
-![experiment 2 UK2019 source-based recommendations](images/fastai_UK2019_exp2.png)
+![experiment 2 UK2019 source-based recommendations](images/fastai_UK2019_exp2_1_annotated.png)
 
 Community had little effect on recommendation outcomes in the UK2019 case.
 
 XXX more discussion on this and also re-run the experiment to determine which communities the target and high-profile belonged to
-
-New run for UK2019:
-target: user_035067 in community: 6 size: 5421
-high_profile: user_035060 in community: 13 size: 3041
 
 ## Experiment 3: Amplifiers chosen based on similarity to control accounts
 

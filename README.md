@@ -197,15 +197,15 @@ This is an interesting result. I would have assumed that conducting an attack us
 
 ## Experiment 3: Amplifiers chosen based on similarity to control accounts
 
-The following bar charts depict experimental results where amplifiers with high similarity to the twenty control accounts were selected. A range of amplifier count - retweet count parameters were tried.
+The following bar charts depict experimental results where amplifiers with high similarity to the twenty control accounts were selected. Similarity values were obtained from the source-based similarity matrix calculated for the baseline dataset in each case. A range of amplifier count - retweet count parameters were tried.
 
 ![experiment 3 US2020 source-based recommendations](images/fastai_US2020_exp3.png)
 
 ![experiment 3 UK2019 source-based recommendations](images/fastai_UK2019_exp3.png)
 
-Generally speaking, choosing accounts similar to the control set as opposed to at random imparted a roughly 10% increase to the effectiveness of baseline attacks that achieved 60% or less coverage. Since more aggressive attacks (those that utilized 1000 or more amplifiers) were already nearing full coverage, choosing amplifiers similar to the control set had no noticeable effect.
+Generally speaking, choosing accounts similar to the control set imparted a roughly 10% increase to the effectiveness of baseline attacks that achieved 60% or less coverage (as compared to randomly selected accounts). Since more aggressive attacks (those that utilized 1000 or more amplifiers) were already nearing full coverage, choosing amplifiers similar to the control in this case set had no noticeable effect.
 
-This result is interesting with respect to a social engineering attack scenario. An attacker who wishes to specifically target an individual can instruct fake accounts to behave the same way as the victim account - i.e. have those fake accounts spend a few days retweeting the same content as the victim account prior to launching the actual attack.
+This result is interesting when considering a social engineering attack scenario. An attacker who wishes to specifically target an individual can instruct fake accounts to behave the same way as the victim account - i.e. have those fake accounts spend a few days retweeting the same content as the victim account prior to launching the actual attack. Since social network recommendations are likely only calculated across a recent slice of activity, it should be easy for an attacker to sync their fake accounts with the victim's account in this way.
 
 # Conclusions
 
@@ -215,14 +215,23 @@ This result is interesting with respect to a social engineering attack scenario.
 - these messages mostly end up in their own filter bubbles
 - if they were to adopt different behaviours, based on these experiments, they may be able to push their content to the wider Twittersphere
 - these experiments don't reflect the real situation on social networks, but do give us an idea as to how coordinated behaviour on these platforms likely have an effect
-- detection approaches
+
+Possible detection mechanisms
   - for large numbers of amplifiers and a single or couple of tweets, this would be very difficult to detect
     - some tweets go viral, and as such, an account that never received a lot of engagement may suddenly receive it. Determining whether this was because of virality or because of coordinated amplification is difficult
     - some accounts are influencers. Their posts always receive a lot of retweets. In both of these experiments, both the target and high-profile account receive a lot of engagement by default. This type of attack wouldn't be noticed amongst all the other engagement they already receive.
   - for larger numbers of retweets, it should be possible to notice a change in retweet freq dist and determine which accounts participated
   - XXX show retweet frequency distribution
-  - if the distance betweentwo nodes on a graph changes suddenly and drastically, it might be an indication of this
+  - if the distance between two nodes on a graph changes suddenly and drastically, it might be an indication of this
 
+Future directions
+- try different (perhaps more complex) recommendation logic
+- try other datasets
+- try other interaction schemes (e.g. user-tweet, user-hashtag, etc.)
+- attempt to build defenses against these attacks
+  - retweet count distribution changes
+  - radical changes in the graph distance between two nodes
+- understand in more detail how graph features (communities, etc.) change when nodes and edges are added
 
 # Appendix
 
@@ -235,3 +244,7 @@ This result is interesting with respect to a social engineering attack scenario.
 - Collaborative filtering model: fastai collab_learner (https://docs.fast.ai/collab)
 - Cosine similarity matrix: sklearn cosine_similarity (https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html)
 - Visualizsation: matplotlib (https://matplotlib.org/) and seaborn (https://seaborn.pydata.org/)
+
+## Additional graph visualizations
+
+

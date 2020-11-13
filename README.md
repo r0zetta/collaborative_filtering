@@ -207,14 +207,16 @@ Generally speaking, choosing accounts similar to the control set imparted a roug
 
 This result is interesting when considering a social engineering attack scenario. An attacker who wishes to specifically target an individual can instruct fake accounts to behave the same way as the victim account - i.e. have those fake accounts spend a few days retweeting the same content as the victim account prior to launching the actual attack. Since social network recommendations are likely only calculated across a recent slice of activity, it should be easy for an attacker to sync their fake accounts with the victim's account in this way.
 
+
+# Contribution
+
+While researching this topic, I found many github repositories implementing fastai's collab functions, but almost all of them were copy-pasted from the tutorial on fastai's site. The notebooks in this repository contain fully coded and documented examples of how to use fastai's collab library to perform collaborative filtering and recommendation mechanisms, which I hope will be of interest to the community. The experiments described here utilize real-world Twitter data, as opposed to the movielens or goodbooks datasets that were used in all other code examples I could find. I have made these datasets publicly available in hopes that they may be used in future research. This github repository contains well-documented steps (and code) that illustrate a number of interesting attacks against collaborative filtering models and recommendation mechanisms. These attacks can be mapped to real-world Twitter usage. Finally, this report contains a number of suggestions for directions to take this research in.
+
 # Conclusions
 
-- adding even small numbers of interactions can have a marked effect on network structure and collaborative filter models
-- the stuff that followback rings do likely has an effect on Twitter's recommendation algorithms
-- although the people involved in followback rings probably haven't thought about how the algorithms work, they've managed to adopt behaviours that cause their messages to get through to others
-- these messages mostly end up in their own filter bubbles
-- if they were to adopt different behaviours, based on these experiments, they may be able to push their content to the wider Twittersphere
-- these experiments don't reflect the real situation on social networks, but do give us an idea as to how coordinated behaviour on these platforms likely have an effect
+The experiments detailed in this report illustrate that Sybil attacks against recommendation mechanisms are fairly easily to carry out. Even using relatively low numbers of amplifiers and retweet counts, it was possible to significantly alter both network structure and collaborative filtering models. The attacks detailed in this report bear a likeness to tactics already used on Twitter to spread disinformation and amplify political content. As such, it it likely that the groups of accounts participating in these attacks are already successfully altering Twitter's underlying recommendation mechanisms. The people involved in followback rings likely aren't considering Twitter's algorithms when they amplify content. Instead they've unconsciously discovered behavioural patterns that work get their content and messages out, albeit to others within their own filter bubble. If these groups were capable of running their own experiments to probe Twitter's recommendation mechanisms, they could, in theory, adopt different patterns of behaviour that would allow them to spread disinformation to the wider Twittersphere.
+
+
 
 Possible detection mechanisms
   - for large numbers of amplifiers and a single or couple of tweets, this would be very difficult to detect

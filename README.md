@@ -31,6 +31,8 @@ The mechanism results in large groups of accounts that follow each other. It is 
 ![retweet coordination](images/retweet_collaboration.png)
 ![let's make this trend](images/lets_make_this_trend.png)
 
+At the time of writing, coordinated amplification mechanisms identical to those detailed above were being used to spread dozens of intentionally misleading voter fraud stories associated with the 2020 US presidential elections.
+
 Twitter coordination is also used to boost brand new Twitter accounts. This tactic is often used when a member of a collective has their account suspended or banned, and needs to quickly "level up" a newly created account. Anecdotal evidence of this process is documented here https://blog.f-secure.com/discovering-hidden-twitter-amplification/.
 
 Due to the prevalence of coordinated Sybil attacks on social networking sites such as Twitter, a study of how these attacks shape underlying collaborative filtering models and recommendation mechanisms is of interest. The research documented here focuses on the study of those attacks. The experiments documented in this report attempt to manipulate recommendation algorithms by simulating Sybil attacks designed to boost an account such that it is recommended to users it otherwise wouldn’t have been recommended to. Experimental details follow.

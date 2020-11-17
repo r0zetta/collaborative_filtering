@@ -220,10 +220,23 @@ The experiments detailed in this report illustrate that Sybil attacks against re
 
 Detecting the mechanisms behind these attacks would likely be difficult, and may differ based on which attacks are conducted. Attacks involving large numbers of amplifiers all publishing a single, or small number of retweets are similar in nature to organic mechanisms such as tweets going viral (a user posts a tweet that resonates with people, and that tweet receives many retweets despite that user not normally receiving high levels of engagement). Some circles on Twitter consist of two types of accounts - influencers who mainly post original content, and consumers who don't usually post their own content but instead read and retweet content from others. In these circles, tweets that influencers publish usually receive hundreds or even thousands of retweets largely from the same group of consumer accounts. Because of the fact that much of Twitter's organic activity follows these mechanisms, identifying users that always retweet content from certain accounts is not a viable strategy for finding coordinated behaviour. Tweets with "retweet this" are, of course, a signal that the publisher of the tweet wants it to be amplified, but tweets containing that phrase are rather common on Twitter, and don't necessarily reflect true coordination (some of which is likely organized on platforms other than Twitter).
 
+Attacks that utilize larger numbers of retweets per account may have an effect on retweet count frequency distributions (the distribution of the number of accounts that published n retweets). For example, here's the retweet count distribution for the baseline UK2019 dataset (logarithmic y-scale):
 
-  - for larger numbers of retweets, it should be possible to notice a change in retweet freq dist and determine which accounts participated
-  - XXX show retweet frequency distribution
-  - if the distance between two nodes on a graph changes suddenly and drastically, it might be an indication of this
+![UK2019 baseline retweet count dist (log)](images/UK2019_baseline_rtw_dist_log.png)
+
+Compare this to the retweet distribution for the dataset where 200 accounts each performed 20 retweets of both target and high-profile accounts.
+
+![UK2019 200_20 retweet count dist](images/UK2019_200_20_rtw_dist_log.png)
+
+Detection methods that compare retweet count distributions would be able to identify such attacks. Such a detection mechanism could be paired with logic to obtain a list of accounts that participated in the attack (since they would clearly stand out). However, for single-retweet attacks, the distributions are largely unaffected. Here's the baseline UK2019 distribution using a linear scale.
+
+![UK2019 baseline retweet count dist (linear)](images/UK2019_baseline_rtw_dist_linear.png)
+
+Here's the distribution of the same dataset, but with 1000 amplifiers, one retweet each. It is almost identical looking.
+
+![UK2019 200_20 retweet count dist (linear)](images/UK2019_200_20_rtw_dist_linear.png)
+
+Another potential method for detecting the promotion attacks described here would be to measure similarities or graph-based distances between influencer accounts in a series of timeslices. If a distance or similarity value changes significantly between two slices, it may be the indication of a promotion attack.
 
 Future directions
 - try different (perhaps more complex) recommendation logic

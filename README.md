@@ -236,16 +236,16 @@ Here's the distribution of the same dataset, but poisoned with 1000 amplifiers, 
 
 ![UK2019 200_20 retweet count dist (linear)](images/UK2019_200_20_rtw_dist_linear.png)
 
-Another potential method for detecting the promotion attacks described here would be to measure similarities or graph-based distances between influencer accounts in a series of timeslices. If a distance or similarity value changes significantly between two slices, it may be the indication of a promotion attack.
+Another potential method for detecting the promotion attacks described here would be to measure similarities or graph-based distances between influencer accounts in a series of timeslices. If a distance or similarity value changes significantly between two slices, it may be the indication of a promotion attack. Unfortunately, similarity values and graph-based metric calculations were not observed to be fully deterministic in these experiments, so using those values may be problematic. However, this is a topic worth looking into.
 
-Future directions
-- try different (perhaps more complex) recommendation logic
-- try other datasets
-- try other interaction schemes (e.g. user-tweet, user-hashtag, etc.)
-- attempt to build defenses against these attacks
-  - retweet count distribution changes
-  - radical changes in the graph distance between two nodes
-- understand in more detail how graph features (communities, etc.) change when nodes and edges are added
+# Future directions
+These experiments used the dot bias model available in fastai. The library also contains a neural network-based collaborative filtering model, with adjustable neural network layer parameters. The code that implements the neural network-based model can be found in the accompanying notebooks. Although I didn't run the full suite of tests using the nn-based model, I did run a few experiments and the output of those models looked very similar to that of the dot bias model. Other collaborative filtering mechanisms exist, so perhaps it is worth trying some others, especially more recent methodologies, to compare the output.
+
+The recommendation logic implemented in these experiments was intentially designed to be as simple as possible. However, it might be worth implementing more complex logic that utilizes multiple models that are based on other information available from Twitter (such as user-hashtag, user-mention, and user-reply interaction maps). More complex recommendation logic would likely be more robust to the simple attacks detailed here.
+
+Given differences in the effectiveness of attacks between the two studied datasets where participating nodes were chosen from specific communities, it might be interesting to run these experiments on additional datasets in order to understand why this was the case. In fact it would be interesting to study in more detail how graph structural features effect these attacks. It would also be interesting to observe how a graph's structure and features changes as edges are added between different groups of nodes.
+
+Finally, a study into developing detection and defense mechanisms against the attacks decribed in this report is an obvious future direction.
 
 # Appendix
 

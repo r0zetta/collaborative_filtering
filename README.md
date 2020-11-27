@@ -124,11 +124,11 @@ The effectiveness of these methods can be determined by comparing the ranked lis
 
 Here is a sample output for the target-based recommendation algorithm. Only two of the calculated recommendations matched accounts the source had already interacted with.
 
-![target-based recommendations](images/US2020_target_recommendations1.png)
+![target-based recommendations](images/US2020_target_recommendations2.png)
 
 Here is a sample output for the source-based recommendation algorithm, based on the same user shown in the previous example. Nine of the calculated recommendations matched accounts the source had already interacted with.
 
-![source-based recommendations](images/US2020_source_recommendations1.png)
+![source-based recommendations](images/US2020_source_recommendations2.png)
 
 Based on experimental results it is apparent that source-based recommendations were much more accurate.
 

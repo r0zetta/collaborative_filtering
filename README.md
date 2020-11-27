@@ -183,12 +183,12 @@ Since the US2020 dataset was created by following specific Twitter accounts, it 
 
 ## Experiment 2: Amplifiers chosen based on community
 
-The following bar charts depict experimental results from selecting amplifiers based on Louvain community detection applied to a node-edge graph of the baseline datasets, and using fixed 200 amplifiers with 20 retweets parameters.
+The following bar charts depict experimental results from selecting amplifiers based on Louvain community detection applied to a node-edge graph of the baseline datasets, and using fixed 200 amplifiers with 20 retweets parameters. Note that only communities with at least 200 members were used in these experiments. Community label is marked on the x axis.
 
 Here's the bar chart for the US2020 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 30% of the control set being recommended the target account.
 ![experiment 2 US2020 source-based recommendations](images/fastai_US2020_exp2_1_annotated.png)
 
-Here we can see that community had significant effects on the resulting recommendations. Communities 6 and 7 saw a marked reduction in effectiveness of the attack as compared to using randomly selected amplifiers. Communities 8 and 18 worked significantly better than the baseline. Note that assigning amplifier accounts from communities 1 and 3 (the communities that the high-profile and target accounts belonged to) had very little impact on the effectiveness of the attack.
+Here we can see that community had significant effects on the resulting recommendations. Communities 6 and 7 saw a marked reduction in effectiveness of the attack as compared to using randomly selected amplifiers. Communities 8 and 17 worked significantly better than the baseline. Note that assigning amplifier accounts from communities 1 and 3 (the communities that the high-profile and target accounts belonged to) had very little impact on the effectiveness of the attack.
 
 Here's the bar chart for the UK2019 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 50% of the control set being recommended the target account.
 ![experiment 2 UK2019 source-based recommendations](images/fastai_UK2019_exp2_1_annotated.png)

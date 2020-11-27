@@ -122,7 +122,7 @@ Both of the above mechanisms will generate a ranked list of target accounts to r
 
 The effectiveness of these methods can be determined by comparing the ranked list of recommended accounts against accounts the user has already retweeted. The more matches, the more accurate the recommendations are.
 
-Here is a sample output for the target-based recommendation algorithm. "Retweeted by user" refers to the "Weight" value for that source-target pair in the raw dataset. "Total retweets" is a count of all retweets that the account received across the entire dataset. Note that the target-based recommendation algorithms only matched one account that the source had already interacted with (denoted by an asterisk).
+Here is a sample output for the target-based recommendation algorithm. "Retweeted by user" refers to the "Weight" value for that source-target pair in the raw dataset. "Total retweets" is a count of all retweets that the account received across the entire dataset. Note that the target-based recommendation algorithm only matched one account that the source had already interacted with (denoted by an asterisk).
 
 ![target-based recommendations](images/US2020_target_recommendations2.png)
 

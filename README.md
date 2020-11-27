@@ -122,7 +122,7 @@ Both of the above mechanisms will generate a ranked list of target accounts to r
 
 The effectiveness of these methods can be determined by comparing the ranked list of recommended accounts against accounts the user has already retweeted. The more matches, the more accurate the recommendations are.
 
-Here is a sample output for the target-based recommendation algorithm. Only two of the calculated recommendations matched accounts the source had already interacted with.
+Here is a sample output for the target-based recommendation algorithm. "Retweeted by user" refers to the "Weight" value for that source-target pair in the raw dataset. "Total retweets" is a count of all retweets that the account received across the entire dataset. Note that the target-based recommendation algorithms only matched one account that the source had already interacted with (denoted by an asterisk).
 
 ![target-based recommendations](images/US2020_target_recommendations2.png)
 
@@ -130,7 +130,7 @@ Here is a sample output for the source-based recommendation algorithm, based on 
 
 ![source-based recommendations](images/US2020_source_recommendations2.png)
 
-Based on experimental results it is apparent that source-based recommendations were much more accurate.
+Based on experimental results it is apparent that source-based recommendations more accurately matched accounts the user had already interacted with. This mechanism also recommended accounts with high engagement (number of retweets from all accounts).
 
 The recommendation algorithms implemented in these experiments are intentionally simple. Social network recommendation mechanisms are likely based on similar principles (i.e. collaborative filtering, plus some additional logic), but may utilize other available information such as:
 - accounts the user is following or being followed by

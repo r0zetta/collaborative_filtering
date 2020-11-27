@@ -156,8 +156,8 @@ These experiments had no effect on the target-based recommendation algorithm. Al
 
 XXX discussion as to why the target-based recommendation algorithm didn't work?
 
-![experiment 1 US2020 source-based recommendations](images/fastai_US2020_exp1.png)
-![experiment 1 UK2019 source-based recommendations](images/fastai_UK2019_exp1.png)
+![experiment 1 US2020 source-based recommendations](images/fastai_US2020_histogram_exp1.png)
+![experiment 1 UK2019 source-based recommendations](images/fastai_UK2019_histogram_exp1.png)
 
 Upon inspection, it is clear that the experimental methodology was more effective at manipulating recommendations for the UK2019 dataset. This is noticeable at lower values (200 amplifiers with 50 retweets were required to obtain 50% coverage in the US2020 dataset versus 200 amplifiers and 10 retweets for the UK2019 dataset). At higher values, we observe that 1000 amplifiers with 1 retweet and 2000 amplifiers with 1 retweet were much more impactful on the UK2019 collaborative filtering models.
 
@@ -186,12 +186,12 @@ Since the US2020 dataset was created by following specific Twitter accounts, it 
 The following bar charts depict experimental results from selecting amplifiers based on Louvain community detection applied to a node-edge graph of the baseline datasets, and using fixed 200 amplifiers with 20 retweets parameters. Note that only communities with at least 200 members were used in these experiments. Community label is marked on the x axis.
 
 Here's the bar chart for the US2020 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 30% of the control set being recommended the target account.
-![experiment 2 US2020 source-based recommendations](images/fastai_US2020_exp2_1_annotated.png)
+![experiment 2 US2020 source-based recommendations](images/fastai_US2020_histogram_exp2_annotated.png)
 
 Here we can see that community had significant effects on the resulting recommendations. Communities 6 and 7 saw a marked reduction in effectiveness of the attack as compared to using randomly selected amplifiers. Communities 8 and 17 worked significantly better than the baseline. Note that assigning amplifier accounts from communities 1 and 3 (the communities that the high-profile and target accounts belonged to) had very little impact on the effectiveness of the attack.
 
 Here's the bar chart for the UK2019 dataset. Bear in mind that using randomly chosen amplifiers resulted in about 50% of the control set being recommended the target account.
-![experiment 2 UK2019 source-based recommendations](images/fastai_UK2019_exp2_1_annotated.png)
+![experiment 2 UK2019 source-based recommendations](images/fastai_UK2019_histogram_exp2_annotated.png)
 
 Community membership had little effect on recommendation outcomes in the UK2019 case.
 
@@ -201,9 +201,9 @@ This is an interesting result. I would have assumed that conducting an attack us
 
 The following bar charts depict experimental results where amplifiers with high similarity to the twenty control accounts were selected. Similarity values were obtained from the source-based similarity matrix calculated for the baseline dataset in each case. A range of amplifier count - retweet count parameters were tried.
 
-![experiment 3 US2020 source-based recommendations](images/fastai_US2020_exp3.png)
+![experiment 3 US2020 source-based recommendations](images/fastai_US2020_histogram_exp3.png)
 
-![experiment 3 UK2019 source-based recommendations](images/fastai_UK2019_exp3.png)
+![experiment 3 UK2019 source-based recommendations](images/fastai_UK2019_histogram_exp3.png)
 
 Generally speaking, choosing accounts similar to the control set imparted a roughly 10% increase to the effectiveness of baseline attacks that achieved 60% or less coverage (as compared to randomly selected accounts). Since more aggressive attacks (those that utilized 1000 or more amplifiers) were already nearing full coverage, choosing amplifiers similar to the control in this case set had no noticeable effect.
 

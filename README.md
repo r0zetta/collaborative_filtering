@@ -17,21 +17,18 @@ Knowledge of how these recommendation mechanisms work can be used to craft attac
   - cause a piece of content, item, or user to appear at a lower position (or not at all) in a user's timeline or in search results.
 - social engineering: if an adversary already has knowledge on how a specific user has interacted with items in the system, an attack can be crafted to target that user with a recommendation.
 
+This report focuses on the study of promotion attacks.
+
 The most widely used attacks against recommender mechanisms are profile-injection attacks (sometimes referred to as Sybil or Shilling attacks). In order to carry out a profile-injection attack, an adversary creates several fake users or accounts, and has them engage with items in patterns designed to change how that item is recommended to other users. Here, the term ‘engage’ is dependent on the system being attacked, and could include rating an item, reviewing a product, browsing a number of items, following a user, adding items to a shopping basket or wishlist, or liking a post. Attackers may probe a system using ‘throw-away’ accounts in order to understand how the underlying recommendation mechanisms work, and to test whether any detection capabilities exist in the system. Skilled attackers carefully automate their fake users to behave like normal users in order to avoid Sybil attack detection techniques. Such approaches are facilitated by a plethora of inexpensive services available on the Internet. These services allow attackers to purchase views, likes, retweets, followers, reviews, and ratings on all of the big-name social networks, crowdsourced review sites, app stores, and ecommerce sites on the Internet. For more analysis on this phenomenon, take a look at this article https://blog.f-secure.com/how-ai-is-already-being-poisoned-against-you/.
 
-A common attack approach used on social networks involves a large number of users collectively agreeing to perform a specific action in order to achieve a goal (promote a piece of content, promote a user, cause a phrase, keyword, or hashtag to trend, etc.) Coordinated attacks are extremely common on Twitter. Here's how they often work. Users form large groups using "followback" mechanisms:
-- many accounts post tweets that contain lists of other accounts to follow
-- those tweets are retweeted by hundreds or thousands of other participating accounts
-- when a user follows one of the mentioned accounts, that account will follow them back
+A common promotion approach used on social networks involves the owners of a large number of (often fake) accounts collectively agreeing to perform specific actions in order to achieve a goal (promote a piece of content, promote a user, cause a phrase, keyword, or hashtag to trend, etc.) Coordinated amplification of content using this method is extremely common on Twitter. Account owners start by forming large groups using "followback" mechanisms:
+- account owners post tweets that contain lists of other accounts to follow
+- those tweets are retweeted by other participating accounts
+- when an account follows one of the mentioned accounts, that account will follow them back
 
-![followback_train](images/followback_coordination.png)
+This mechanism results in large groups of accounts that follow each other. It is not uncommon to find accounts on Twitter that follow and are followed by tens of thousands of other accounts (with a high overlap of following-followed). These followback rings, or retweet rooms as they are also called, then collaborate to amplify content, keywords, phrases, or hashtags.
 
-The mechanism results in large groups of accounts that follow each other. It is not uncommon to find accounts on Twitter that follow and are followed by tens of thousands of other accounts (with a high overlap of following-followed). These followback rings, or retweet rooms as they are also called, then collaborate to amplify content, keywords, phrases, or hashtags.
-
-![retweet coordination](images/retweet_collaboration.png)
-![let's make this trend](images/lets_make_this_trend.png)
-
-At the time of writing, coordinated amplification mechanisms identical to those detailed above were being used to spread dozens of intentionally misleading voter fraud stories associated with the 2020 US presidential elections.
+At the time of writing, coordinated amplification mechanisms identical to those detailed above were being used to spread dozens of intentionally misleading voter fraud stories associated with the 2020 US presidential elections, and to propagate COVID-19-related disinformation.
 
 Twitter coordination is also used to boost brand new Twitter accounts. This tactic is often used when a member of a collective has their account suspended or banned, and needs to quickly "level up" a newly created account. Anecdotal evidence of this process is documented here https://blog.f-secure.com/discovering-hidden-twitter-amplification/.
 

@@ -147,11 +147,11 @@ It would be difficult to determine how close the algorithms implemented in this 
 
 ## Experiment 1: Randomly chosen amplifiers
 
-The following bar charts depict the effect of varying numbers of amplifier accounts and retweet counts on both the US2020 and UK2019 datasets. Each bar represents the mean percentage of control accounts that observed the target account in the top-3 source-based recomendations over 10 runs. Error bars indicate the minimum and maximum values across those ten runs.
+The following bar charts depict how injecting varying numbers of amplifier accounts and retweet counts into the dataset changed source-based recommendations in both the US2020 and UK2019 datasets. Each bar represents the mean percentage of control accounts that observed the target account in their top-3 source-based recomendations after poisoning had been applied, over 10 runs. Error bars indicate the minimum and maximum values across those ten runs.
 
-These experiments had no effect on the target-based recommendation algorithm. All bar charts associated with those experiments are empty, and thus are not shown. This is the case across all of the conducted experiments.
+The same value pair injection mechanism had no effect on target-based recommendations (all bar charts associated with those experiments were empty, and thus are not shown). This is the case across all of the conducted experiments. It is unclear as to why poisoning attacks had no effect on this recommendation methodology. However, it is worth noting that this result demonstrates the fact that different recommendation mechanisms can be more susceptible or more resilient to poisoning attacks.
 
-XXX discussion as to why the target-based recommendation algorithm didn't work?
+
 
 ![experiment 1 US2020 source-based recommendations](images/fastai_US2020_histogram_exp1.png)
 ![experiment 1 UK2019 source-based recommendations](images/fastai_UK2019_histogram_exp1.png)

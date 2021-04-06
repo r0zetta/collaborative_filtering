@@ -193,7 +193,11 @@ Community membership had much less effect on recommendation outcomes in the UK20
 
 This is an interesting result. I would have assumed that conducting an attack using accounts that behave in a similar way to the target or high-profile account would be more effective. That didn't turn out to be the case. The fact that community membership had a significant effect in one dataset and not in another leads me to believe that network structure plays a role in the effectiveness of these attack mechanisms in general. It would be interesting to capture more datasets in order to determine what graph structural features impede or assist these attack mechanisms.
 
-XXX Add community feature table XXX
+In order to attempt to determine why certain communities had a more pronounced effect on the poisoning attack, a number of features were extracted from the communities identified by Louvain community detection for the US2020 dataset. The features are shown below.
+
+![US2020 community features](images/us2020_community_features.png)
+
+None of the features extracted correlated with either the reduced effectiveness (6 and 7) or increased effectiveness (8 and 17) attacks.
 
 ## Experiment 3: Amplifiers chosen based on similarity to control accounts
 

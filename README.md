@@ -195,9 +195,9 @@ This is an interesting result. I would have assumed that conducting an attack us
 
 In order to attempt to determine why certain communities had a more pronounced effect on the poisoning attack, a number of features were extracted from the communities identified by Louvain community detection for the US2020 dataset. The features are shown below.
 
-![US2020 community features](images/us2020_community_features.png)
+![US2020 community features](images/us2020_community_features2.png)
 
-None of the features extracted correlated with either the reduced effectiveness (6 and 7) or increased effectiveness (8 and 17) attacks.
+None of the features extracted seem to correlate with either the reduced effectiveness (6 and 7) or increased effectiveness (8 and 17) attacks.
 
 ## Experiment 3: Amplifiers chosen based on similarity to control accounts
 

@@ -268,4 +268,32 @@ While researching this topic, I found many github repositories implementing fast
 
 ## Additional graph visualizations
 
+The US2020 dataset with target and high-profile nodes highlighted.
+
+![US2020 base graphviz](images/fastai_US2020_baseline.png)
+
+The US2020 dataset with 200 nodes performing one retweet each of both target and high-profile accounts.
+
+![US2020 200 1 annotated](images/fastai_US2020_exp1_200_1_1.png)
+
+The US2020 dataset with 200 nodes performing 20 retweets each of both target and high-profile accounts.
+
+![US2020 200 20 annotated](images/fastai_US2020_exp1_200_20_0.png)
+
+The US2020 dataset with 500 nodes performing one retweet each of both target and high-profile accounts.
+
+![US2020 500 1 annotated](images/fastai_US2020_exp1_500_1_2.png)
+
+The US2020 dataset with 500 nodes performing 5 retweets each of both target and high-profile accounts.
+
+![US2020 500 5 annotated](images/fastai_US2020_exp1_500_5_0.png)
+
+The US2020 dataset with 1000 nodes performing one retweet each of both target and high-profile accounts.
+![US2020 1000 1 annotated](images/fastai_US2020_exp1_1000_1_3.png)
+
+The US2020 dataset with 2000 nodes performing 5 retweets each of both target and high-profile accounts.
+
+![US2020 2000 5 annotated](images/fastai_US2020_exp1_2000_5_0.png)
+
+
 

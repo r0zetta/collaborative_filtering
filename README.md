@@ -197,7 +197,7 @@ In order to attempt to determine why certain communities had a more pronounced e
 
 ![US2020 community features](images/us2020_community_features2.png)
 
-None of the features extracted seem to correlate with either the reduced effectiveness (6 and 7) or increased effectiveness (8 and 17) attacks.
+None of the features extracted seem to correlate with either the reduced effectiveness (6 and 7) or increased effectiveness (8 and 17) attacks. Communities 8 and 17 are both fairly small (435 and 264 members respectively), but other communities of comparable size exist (9 and 16) that didn't exhibit increased attack effectiveness. 
 
 ## Experiment 3: Amplifiers chosen based on similarity to control accounts
 

@@ -197,7 +197,7 @@ In order to attempt to determine why certain communities had a more pronounced e
 
 ![US2020 community features](images/us2020_community_features3.png)
 
-None of the features extracted seem to correlate with either the reduced effectiveness (6 and 7) or increased effectiveness (8 and 17) attacks. Communities 8 and 17 are both fairly small (435 and 264 members respectively), but other communities of comparable size exist (9 and 16) that didn't exhibit increased attack effectiveness. 
+None of the features extracted seem to correlate with either the reduced effectiveness (6 and 7) or increased effectiveness (8 and 17) attacks. Communities 8 and 17 are both fairly small (435 and 264 members respectively), but other communities of comparable size exist (9 and 16) that didn't exhibit increased attack effectiveness. Communities 8 and 17 both contained a very small number of accounts that interacted with the chosen target and high-profile accounts, but so did a few others. Considering community size, total retweets, and mean retweet count, communities 9 and 17 are very similar, and yet showed significant differences in attack effectiveness. Community 17 stands out as having by far the lowest maximum retweet count (meaning the most active account in that community only published 4 retweets - the next lowest value was 13 from community 7).
 
 ## Experiment 3: Amplifiers chosen based on similarity to control accounts
 

@@ -153,7 +153,7 @@ The same value pair injection attack had no effect whatsoever on the target-base
 
 
 ![experiment 1 US2020 source-based recommendations](images/fastai_US2020_histogram_exp1.png)
-![experiment 1 UK2019 source-based recommendations](images/fastai_UK2019_histogram_exp1.png)
+![experiment 1 UK2019 source-based recommendations](images/fastai_UK2019_histogram2_exp1.png)
 
 This experimental methodology was more effective at manipulating recommendations for the UK2019 dataset. This is noticeable at lower values (200 amplifiers with 50 retweets were required to obtain 50% coverage in the US2020 dataset versus 200 amplifiers and 10 retweets for the UK2019 dataset). At higher values, we observe that 1000 amplifiers with 1 retweet and 2000 amplifiers with 1 retweet were much more impactful on the UK2019 collaborative filtering models.
 

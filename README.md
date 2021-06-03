@@ -69,6 +69,8 @@ This dataset contains 52920 rows representing interactions between 25137 retweet
 - **user_025303** was chosen as the high-profile account. This verified Twitter account belongs to a US politician and receives a great deal of engagement on the platform.
 - **user_004286** was chosen as the target account. This non-verified Twitter account actively participates in US political conversation, and often shares disinformation.
 
+Many of the accounts in this dataset have since been suspended by Twitter, including both the target and high-profile accounts.
+
 The following image is a graph visualization of this dataset.
 ![US2020 base graphviz](images/fastai_US2020_baseline_unmarked.png)
 

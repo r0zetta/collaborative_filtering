@@ -2,6 +2,8 @@
 This repository details experiments designed to simulate attacks against social network recomendation mechanisms, and evaluate their effectiveness.
 
 # Introduction
+Recommendation mechanisms are used in a wide range of services, including e-commerce sites, social networks, and streaming services. Popular machine learning approaches used in recommenders include collaborative and content-based filtering. In this report, we detail experiments designed to simulate attacks against recommendation mechanisms derived from data collected from a social network. While our experiments were performed against simple collaborative filtering-based  mechanisms, the results should be generalizable to systems that employ these types of techniques.
+
 Social networks employ a variety of mechanisms designed to recommend content and actions to users. Examples of these mechanisms include suggesting accounts to follow (Twitter), suggesting groups to join (Facebook), constructing curated timelines and search results (Twitter), and recommending videos to watch (YouTube). It is highly likely that some or many of these mechanisms utilize collaborative filtering techniques. Collaborative filtering is a machine learning technique that can be used to build a model that encodes similarities between users and items based on user preference data. Similarity vectors obtained from a trained collaborative filtering model can be used to output recommendations for any user in the system. Recommendations are typically based on one of two criteria:
 - user-based recommendations recommend items that were popular with similar users
 - item-based recommendations recommend items that are similar to other items the user has interacted with

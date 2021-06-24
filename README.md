@@ -258,6 +258,9 @@ Finally, a study into developing detection and defense mechanisms against the at
 
 While researching this topic, I found many github repositories implementing fastai's collab functions, but almost all of them were copy-pasted from the tutorial on fastai's site. The notebooks in this repository contain fully coded and documented examples of how to use fastai's collab library to perform collaborative filtering and recommendation mechanisms, which I hope will be of interest to the community. The experiments described here utilize real-world Twitter data, as opposed to the movielens or goodbooks datasets that were used in all other code examples I could find. I have made these datasets publicly available in hopes that they may be used in future research. This github repository contains well-documented steps (and code) that illustrate a number of interesting attacks against collaborative filtering models and recommendation mechanisms. These attacks can be mapped to real-world Twitter usage. Finally, this report contains a number of suggestions for directions to take this research in.
 
+# Acknowledgements
+This work was conducted by Andrew Patel of F-Secure Corporation, as part of the EU Horizon 2020 project SHERPA (https://www.project-sherpa.eu/). F-Secure is studying threats against AI-powered systems and ways of countering those as part of project SHERPA. The recommendation to undertake security analysis of machine learning systems is part of a key contribution to the project and guides recommendations to policy makers, designers, developers, integrators, and operators of AI systems (https://www.project-sherpa.eu/recommendations/).
+
 # Appendix
 
 ## Libraries used
